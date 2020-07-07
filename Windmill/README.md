@@ -1,6 +1,7 @@
 # Windmill
 
-A new Flutter project.
+An app to predict the power output of windmill for next 72 hours (on hourly basis) at any geocordinate.
+The code is present in the lib folder.
 
 ## Getting Started
 
