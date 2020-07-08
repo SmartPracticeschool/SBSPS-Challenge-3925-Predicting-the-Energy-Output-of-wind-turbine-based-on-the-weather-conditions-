@@ -1,5 +1,7 @@
 # Predicting Energy Output of Wind Turbine based on the Weather Conditions
 
+##### app-release.apk is the APK of the app for direct use
+
 ## Description of Project
 Wind energy plays an increasing role in the supply of energy world-wide. The energy output of a wind farm is highly dependent on the wind conditions present at its site. If the output can be predicted more accurately, energy suppliers can coordinate the collaborative production of different energy sources more efficiently to avoid costly overproduction.
 
@@ -12,5 +14,4 @@ We used Iterative SDLC model in making of this software. We made, tested and scr
 ## Technology Stack Used
 Jupyter Notebook (Python3) for Data Preprocessing, Python3 for ML model making and Flutter for front-end app development and Flask for back-end and integration with the model.
 
-##### Wind Power_com.example.Windmill.apk is the APK of the app for direct use
 ##### Climacell API key has been removed from app.py
