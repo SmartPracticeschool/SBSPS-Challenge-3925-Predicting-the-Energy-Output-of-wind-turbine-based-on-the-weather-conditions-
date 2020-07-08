@@ -2,38 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:Windmill/models/PowerModel.dart';
 
-// PowerModel class to store the values in its objects that will come from back-end
-class PowerModel {
-  double power;
-  String date;
-  String time;
-  String windSpeed;
-  String temperature;
-  String humidity;
-  String pressure;
-
-  PowerModel(
-      {this.power,
-      this.date,
-      this.time,
-      this.windSpeed,
-      this.temperature,
-      this.humidity,
-      this.pressure});
-
-  // this method will convert the json data to PowerModel object
-  factory PowerModel.fromJson(Map<String, dynamic> json) {
-    return PowerModel(
-        power: json['power'],
-        date: json['date'],
-        time: json['time'],
-        windSpeed: json['wind_speed'],
-        temperature: json['temperature'],
-        humidity: json['humidity'],
-        pressure: json['pressure']);
-  }
-}
 
 // ResultScreen class with latitude and longitudes as parameters which are passed from previous screen
 class ResultScreen extends StatefulWidget {
@@ -185,69 +155,71 @@ class _ResultScreenState extends State<ResultScreen> {
                       Expanded(
                         child: Padding(
                           padding: EdgeInsets.only(left: 0.0, top: 12.0),
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 20.0, vertical: 3.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  'Best Power Generated',
-                                  style: TextStyle(
-                                    fontSize: 19.0,
-                                    color: Colors.lightBlue,
-                                    fontWeight: FontWeight.bold,
+                          child: Center(
+                            child: Container(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 20.0, vertical: 3.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    'Best Power Generated',
+                                    style: TextStyle(
+                                      fontSize: 19.0,
+                                      color: Colors.lightBlue,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ),
-                                SizedBox(
-                                  height: 8.0,
-                                ),
-                                // Best generated power
-                                Text(
-                                  "Power : " +
-                                      (bestPower / hours).toStringAsFixed(4) +
-                                      " kW",
-                                  style: TextStyle(
-                                    fontSize: 20.0,
-                                    fontStyle: FontStyle.italic,
-                                    fontWeight: FontWeight.bold,
+                                  SizedBox(
+                                    height: 8.0,
                                   ),
-                                ),
-                                SizedBox(
-                                  height: 1.0,
-                                ),
-                                Text(
-                                  "Latitude : " +
-                                      double.tryParse(latitude)
-                                          .abs()
-                                          .toStringAsFixed(4) +
-                                      "º" +
-                                      (double.tryParse(latitude) > 0
-                                          ? " N"
-                                          : " S"),
-                                  style: TextStyle(
-                                    color: Colors.white54,
-                                    fontSize: 15.0,
+                                  // Best generated power
+                                  Text(
+                                    "Power : " +
+                                        (bestPower / hours).toStringAsFixed(4) +
+                                        " kW",
+                                    style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontStyle: FontStyle.italic,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ),
-                                SizedBox(
-                                  height: 1.0,
-                                ),
-                                Text(
-                                  "Longitude : " +
-                                      double.tryParse(longitude)
-                                          .abs()
-                                          .toStringAsFixed(4) +
-                                      "º" +
-                                      (double.tryParse(longitude) > 0
-                                          ? " E"
-                                          : " W"),
-                                  style: TextStyle(
-                                    color: Colors.white54,
-                                    fontSize: 15.0,
+                                  SizedBox(
+                                    height: 1.0,
                                   ),
-                                ),
-                              ],
+                                  Text(
+                                    "Latitude : " +
+                                        double.tryParse(latitude)
+                                            .abs()
+                                            .toStringAsFixed(4) +
+                                        "º" +
+                                        (double.tryParse(latitude) > 0
+                                            ? " N"
+                                            : " S"),
+                                    style: TextStyle(
+                                      color: Colors.white54,
+                                      fontSize: 15.0,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 1.0,
+                                  ),
+                                  Text(
+                                    "Longitude : " +
+                                        double.tryParse(longitude)
+                                            .abs()
+                                            .toStringAsFixed(4) +
+                                        "º" +
+                                        (double.tryParse(longitude) > 0
+                                            ? " E"
+                                            : " W"),
+                                    style: TextStyle(
+                                      color: Colors.white54,
+                                      fontSize: 15.0,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
